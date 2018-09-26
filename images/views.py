@@ -4,7 +4,7 @@ import datetime as dt
 
 # Create your views here.
 def welcome(request):
-    return render(request, 'welcome.html')
+    return render(request, 'all-images.html')
 
 def image(request,image_id):
     try:
