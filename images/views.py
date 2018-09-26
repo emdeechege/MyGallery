@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
-import datetime as dt
 
 # Create your views here.
-def welcome(request):
+def home(request):
     return render(request, 'all-images.html')
 
 def image(request,image_id):

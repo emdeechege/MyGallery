@@ -20,4 +20,4 @@ class Image(models.Model):
     description = HTMLField()
     gallery_image = models.ImageField(upload_to='articles/', blank=True)
     categories = models.ManyToManyField(categories)
-    location = models.ManyToManyField(location)
+    location = models.ForeignKey(location)
