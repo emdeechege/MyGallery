@@ -18,6 +18,11 @@ class location(models.Model):
 class Image(models.Model):
     name= models.CharField(max_length=50)
     description = HTMLField()
-    gallery_image = models.ImageField(upload_to='articles/', blank=True)
+    gallery_image = models.ImageField(upload_to='picha/', blank=True)
     categories = models.ManyToManyField(categories)
     location = models.ForeignKey(location)
+
+    @classmethod
+    def all_images():
+
+        return Image.objects.all()
