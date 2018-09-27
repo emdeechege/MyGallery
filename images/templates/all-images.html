@@ -8,24 +8,45 @@
     <!--Display image Image images  -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
       {% if image.gallery_image %}
-      <img src="{{image.gallery_image.url}}" class="img-responsive" alt="Image" style="width:600;height:400px;">
+      <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal">
       {% endif %}
     </div>
+
 {%endfor%}
   </div>
+</div>
   <!-- Large modal -->
-  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+  {% for image in images %}
 
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        ...
-      </div>
-    </div>
-  </div>
-
-
+<!-- Modal -->
+<div class="modal fade" id="extraModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="extra" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id="exampleModalLongTitle">{{image.name}}</h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+      <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal">
+      <p>{{image.description}}</p>
+      <p>{{image.location}}</p>
+      <ul>
+        {% for category in image.categories.all %}
+            <li> {{ category.name }} </li>
+        {% endfor %}
+    </ul>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       <button type="button" class="btn btn-primary">Save changes</button>
+     </div>
+   </div>
+ </div>
 </div>
 
 
+
+{%endfor%}
 {% endblock %}
