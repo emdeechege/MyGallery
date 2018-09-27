@@ -3,47 +3,48 @@
 {{ block.super}}
 {% load bootstrap4 %}
 <div class="container">
-  <div class="row">
-    {% for image in images %}
-    <!--Display image Image images  -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      {% if image.gallery_image %}
-      <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal">
-      {% endif %}
-    </div>
 
-{%endfor%}
+  <div class="card-columns">
+    {% for image in images %}
+    <div class="card">
+      <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" style="width:500px;height:250px;">
+    </div>
+    {%endfor%}
   </div>
+
 </div>
-  <!-- Large modal -->
-  {% for image in images %}
+</div>
+<!-- Large modal -->
+{% for image in images %}
 
 <!-- Modal -->
 <div class="modal fade" id="extraModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="extra" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h5 class="modal-title" id="exampleModalLongTitle">{{image.name}}</h5>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-      <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal">
-      <p>{{image.description}}</p>
-      <p>{{image.location}}</p>
-      <ul>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{image.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal">
+        <p>{{image.description}}</p>
+        <p>{{image.location}}</p>
+
         {% for category in image.categories.all %}
-            <li> {{ category.name }} </li>
+        <p> #{{ category.name }} </p>
         {% endfor %}
-    </ul>
-     </div>
-     <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       <button type="button" class="btn btn-primary">Save changes</button>
-     </div>
-   </div>
- </div>
+
+        <!-- The button used to copy the text -->
+        <button onclick="myFunction()">Copy Link</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 

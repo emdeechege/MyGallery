@@ -1,0 +1,9 @@
+<div class="card-columns">
+  {% for image in images %}
+<div class="card">
+  <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal">
+
+  </div>
+  {%endfor%}
+
+</div>
