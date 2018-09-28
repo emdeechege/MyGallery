@@ -23,7 +23,7 @@ class Image(models.Model):
     location = models.ForeignKey(Location)
 
     @classmethod
-    def all_images():
+    def all_images(self):
 
         return Image.objects.all()
 
