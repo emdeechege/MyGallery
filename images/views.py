@@ -12,7 +12,7 @@ def home(request):
         images = Image.view_location(name)
         return render(request, 'all-images.html', {"name":name,"images":images })
 
-    return render(request,"all-images.html",{"images":images,"location":location})
+    return render(request,"all-images.html",{"images":images,"location":location,"category":category})
 
 def search_results(request):
 
