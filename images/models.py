@@ -28,11 +28,16 @@ class Image(models.Model):
         return Image.objects.all()
 
     @classmethod
-    def search_by_name(cls,search_term):
-        images = cls.objects.filter(name__icontains=search_term)
+    def search_by_category(cls,search_images):
+        images = Image.objects.filter(categories__name__icontains=search_images)
         return images
 
     @classmethod
     def view_location(cls,name):
         location = cls.objects.filter(location=name)
         return location
+
+    @classmethod
+    def view_category(cls,cat):
+        categories = cls.objects.filter(categories=cat)
+        return categories

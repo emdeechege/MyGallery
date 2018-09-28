@@ -4,7 +4,7 @@
 
   <div class="row">
     {% if images%}
-      <h2>Found {{ images|length }} of searched term {{message}}</h2>
+      <h2>{{ images|length }} pieces of {{message}} images found...</h2>
     {% else %}
       <h2> Found 0 images for the search term {{message}}</h2>
     {% endif %}
@@ -16,7 +16,7 @@
   {% if images %}
     {% for image in images %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{image.name}}</h1>
+          <h5>{{image.name}}</h5>
           <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" style="width:400px;height:250px;">
       </div>
     {% endfor %}
