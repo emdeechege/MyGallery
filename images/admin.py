@@ -3,4 +3,4 @@ from .models import *
 # Register your models here.
 admin.site.register(Image)
 admin.site.register(categories)
-admin.site.register(location)
+admin.site.register(Location)

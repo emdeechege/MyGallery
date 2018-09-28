@@ -4,8 +4,9 @@ from .models import *
 # Create your views here.
 def home(request):
     images = Image.objects.all()
+    location = Location.objects.all()
 
-    return render(request,"all-images.html",{"images":images})
+    return render(request,"all-images.html",{"images":images,"location":location})
 
 def search_results(request):
 
@@ -20,9 +21,9 @@ def search_results(request):
         message = "You haven't searched for any image"
         return render(request, 'search.html',{"message":message})
 
-def image(request,image_id):
+def get_image_by_id(request,image_id):
     try:
         image = Image.objects.get(id = image_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,"image/image.html", {"image":image})
+    return render(request,"image.html", {"image":image})

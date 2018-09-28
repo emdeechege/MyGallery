@@ -7,7 +7,7 @@
 <div class="container">
 
   <div class="card-columns">
-    {% for image in images %}
+
     <div class="card border-secondary">
       <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
     </div>
@@ -19,7 +19,8 @@
       <p> Category: {{ category.name }} </p>
       {% endfor %}
     </div>
-    {%endfor%}
+
   </div>
 
 </div>
+{% endblock %}
