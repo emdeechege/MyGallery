@@ -36,7 +36,8 @@
         {% endfor %}
 
         <!-- The button used to copy the text -->
-        <button onclick="myFunction()">Copy Link</button>
+        <p>{{image.gallery_image.url}}</p>
+        <button type="button" name="button" class="container-fluid" value="{{image.gallery_image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -45,7 +46,18 @@
     </div>
   </div>
 </div>
-
+<script>
+function copylink(value) {
+    console.log('hi Dan')
+    function handler(event){
+        event.clipboardData.setData('text/plain', value);
+        event.preventDefault();
+        document.removeEventListener('copy', handler, true);
+    }
+    document.addEventListener('copy', handler, true);
+    document.execCommand('copy');
+}
+</script>
 
 
 {%endfor%}

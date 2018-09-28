@@ -1,0 +1,10 @@
+@media (min-width: 576px) {
+ .modal-dialog { max-width: none; }
+}
+
+.modal {
+ width: 98%;
+ height: 92%;
+ padding: 0;
+ align-content: center;
+}
