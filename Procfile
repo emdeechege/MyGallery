@@ -1,1 +1,1 @@
-web: gunicorn emdeegallery.wsgi
+web: gunicorn pictures.wsgi
