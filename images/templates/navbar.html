@@ -19,16 +19,19 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
-      </ul>
-      <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Location
-  </a>
+
+      <li class="nav-item dropdown">
+
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Location
+              </a>
+
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    {% for location in location %}
+{% for location in location %}
     <a class="dropdown-item" href="/?location={{location.id}}">{{location.name}}</a>
     {%endfor%}
   </div>
+  </ul>
 </div>
       <form class="form-inline my-2 my-lg-0"role="search" action="{% url 'search_results' %}">
         <input type="text" class="form-control" placeholder="Search Image" name="image">

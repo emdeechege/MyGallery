@@ -5,6 +5,12 @@ from .models import *
 def home(request):
     images = Image.objects.all()
     location = Location.objects.all()
+    category = categories.objects.all()
+
+    if 'location' in request.GET and request.GET['location']:
+        name = request.GET.get('location')
+        images = Image.view_location(name)
+        return render(request, 'all-images.html', {"name":name,"images":images })
 
     return render(request,"all-images.html",{"images":images,"location":location})
 
