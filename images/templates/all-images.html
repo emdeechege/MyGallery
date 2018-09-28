@@ -2,18 +2,20 @@
 {% block content %}
 {{ block.super}}
 {% load bootstrap4 %}
+<br>
+<br>
 <div class="container">
 
   <div class="card-columns">
     {% for image in images %}
-    <div class="card">
-      <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" style="width:400px;height:250px;">
+    <div class="card border-secondary">
+      <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
     </div>
     {%endfor%}
   </div>
 
 </div>
-</div>
+
 <!-- Large modal -->
 {% for image in images %}
 
@@ -21,9 +23,11 @@
 <div class="modal fade" id="extraModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="extra" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Title: {{image.name}}</h5>
+      </div>
       <div class="modal-body">
-        <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" style="width:480px;height:350px;">
-        <!-- <h5 class="modal-title" id="exampleModalLongTitle">Title: {{image.name}}</h5> -->
+        <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" size="100px200">
         <p>About: {{image.description}}</p>
         <p>Location: {{image.location}}</p>
 
