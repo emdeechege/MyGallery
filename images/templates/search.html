@@ -1,4 +1,4 @@
-{%extends 'base.html'%} 
+{%extends 'base.html'%}
 {% block content %}
 <div class="container">
 
@@ -16,7 +16,8 @@
   {% if images %}
     {% for image in images %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{image.title}}</h1>
+          <h1>{{image.name}}</h1>
+          <img src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" style="width:400px;height:250px;">
       </div>
     {% endfor %}
   {% endif %}
