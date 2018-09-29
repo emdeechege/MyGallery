@@ -25,7 +25,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Title: {{image.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
       </div>
+
       <div class="modal-body">
         <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" size="100px200">
         <p>About: {{image.description}}</p>
@@ -36,8 +39,8 @@
         {% endfor %}
 
         <!-- The button used to copy the text -->
-        <p>{{image.gallery_image.url}}</p>
-        <button type="button" name="button" class="container-fluid" value="{{image.gallery_image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
+
+        <button type="button" name="button" class="btn btn-info" value="https://emdeegallery.herokuapp.com{{image.gallery_image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
