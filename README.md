@@ -1,42 +1,40 @@
-# Blog
+# Emdee's Gallery
 
 ## Built By [Tom Chege](https://github.com/emdeechege/)
 
 ## Description
-an application that allows users to use that one minute wisely. The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
-
+This is an application that allows users to view images. Image details are stored in categories and tagged by Location. The admin is responsible for uploading, editing or deleting images.
 
 ## User Stories
 These are the behaviours/features that the application implements for use by a user.
 
-As a user I would like to:
-* View the blog posts submitted.
-* Comment on blog posts.
-* View the most recent posts
-* Alerted when a new post is made by joining a subscription.
-* comment on the different pitches and leave feedback.
+Users would like to:
+* View all images submitted.
+* Click on images to display more details.
+* Search for images by category.
+* Copy links to images to share with their friends
 
-## Blogger Abilities
-These are the behaviours/features that the application implements for use by the writter/Blogger
+## Admin Abilities
+These are the behaviours/features that the application implements for use by the admin.
 
-Bloggers would like to:
-* Sign in to the blog
-* Create a blog from the application
-* Delete comments that I find insulting or degrading
-* Update or delete blogs I have created.
+Admin should:
+* Sign in to the gallery
+* Create new images for showcasing
+* Delete images
+* Update image post details.
 
 
 ## Specifications
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
-| Writer/Blogger Authentication | **On demand** | Access Admin dashboard |
-| Display blogs by most recent | **Home page** | Clickable links to open all blogs |
-| Display profile | **Click profile page** | Redirected to a page with your profile |
-| Display single blogs | **On link click** | Blog is displayed with comment ready function plus any comments already stored |
-| To add a blog  | **Through Admin dashboard** | Redirected to the new blog form collection form|
-| To edit a blog  | **Through Admin dashboard** | Redirected to the  blog form collection form and editing happens|
-| To delete a blog/comments  | **Through Admin dashboard and on displays** | Bad comments and posts can be deleted|
-| To subscribe  | **On button click** | Users can subscribe on click|
+| Admin Authentication | **On demand** | Access Admin dashboard |
+| Display all images | **Home page** | Clickable links to open any images in a modal |
+| Display single images on click | **On  click** | All details should be viewed|
+| To add an image  | **Through Admin dashboard** | Add and add categories and tag location of Image|
+| To edit image  | **Through Admin dashboard** | Redirected to the  image form details and editing happens|
+| To delete an image  | **Through Admin dashboard ** | click on image object and confirm by delete button|
+| To search  | **Enter text in search bar** | Users can search by category|
+| To filter by Location  | **Click drop-down on navbar** | Users can view images by Location|
 
 
 ## SetUp / Installation Requirements
@@ -49,33 +47,32 @@ Bloggers would like to:
 ### Cloning
 * In your terminal:
 
-        $ git clone https://github.com/emdeechege/peech/
-        $ cd peech
+        $ git clone https://github.com/emdeechege/MyGallery
+        $ cd MyGallery
 
 ## Running the Application
 * Creating the virtual environment
 
         $ python3.6 -m venv --without-pip virtual
-        $ source virtual/bin/env
+        $ source virtual/bin/activate
         $ curl https://bootstrap.pypa.io/get-pip.py | python
 
-* Installing Flask and other Modules
+* Installing Django and other Modules
 
         $ see Requirements.txt
 
 * To run the application, in your terminal:
 
-        $ chmod +x start.sh
-        $ ./start.sh
+        $ python3.6 manage.py runserver
 
 ## Testing the Application
 * To run the tests for the class files:
 
-        $ python3.6 manage.py test
+        $ python3.6 manage.py test images
 
 ## Technologies Used
 * Python3.6
-* Flask
+* Django and postgresql
 
 ## License
 
