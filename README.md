@@ -1,5 +1,7 @@
 # Emdee's Gallery
 
+![MyGallery](/static/img/md.png)
+
 ## Built By [Tom Chege](https://github.com/emdeechege/)
 
 ## Description
